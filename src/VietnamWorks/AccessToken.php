@@ -16,11 +16,12 @@ class AccessToken
 
     protected $refresh_token;
 
-    public function __construct($token, $accessToken)
+    public function __construct($token, $refreshToken)
     {
         $this->token = $token;
-        $this->refresh_token = $accessToken;
+        $this->refresh_token = $refreshToken;
     }
+
 
     /**
      * @return mixed
