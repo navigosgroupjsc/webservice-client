@@ -129,7 +129,7 @@ class VnwRestClient
      * @param array $files
      * @return \stdClass
      */
-    public function post($endpointUrl, $accessToken, $postData = array(), $files = array())
+    public function post($endpointUrl, $accessToken, $postData = array(), $files = array(), $headers = array())
     {
         $postDataMultipart = [];
         $postDataMultipart[]=array(
@@ -146,7 +146,7 @@ class VnwRestClient
             );
         }
 
-        return $this->send('POST', $endpointUrl, $accessToken, [],[],$postDataMultipart);
+        return $this->send('POST', $endpointUrl, $accessToken, [], $headers, $postDataMultipart);
     }
 
 
