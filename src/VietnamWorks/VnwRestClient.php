@@ -149,6 +149,21 @@ class VnwRestClient
         return $this->send('POST', $endpointUrl, $accessToken, [], $headers, $postDataMultipart);
     }
 
+    /**
+     * @param $endpointUrl
+     * @param $accessToken
+     * @param array $postData
+     * @param array $files
+     * @return \stdClass
+     */
+    public function postRequest($endpointUrl, $accessToken, $postData = array(), $files = array(), $headers = array())
+    {
+        if(empty($headers)) {
+            $headers = array('Content-Type' => 'application/json');
+        }
+
+        return $this->send('POST', $endpointUrl, $accessToken, json_encode($postData), $headers);
+    }
 
     /**
      * @param ResponseInterface $response
